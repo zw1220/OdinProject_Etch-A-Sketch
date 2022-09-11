@@ -1,0 +1,209 @@
+*:root {
+  --light-brown: #F7ECDE;
+  --dark-brown: #E9DAC1;
+  --light-green: #9ED2C6;
+  --dark-green: #54BAB9;
+  --black: #000000;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  padding: 0;
+  margin: 0;
+}
+
+html {
+  /* Footer support */
+  position: relative;
+  min-height: 100%;
+}
+
+body {
+  background-color: var(--dark-brown);
+  color: var(--black);
+  font-family: "Roboto", sans-serif;
+  line-height: 1.5;
+
+  /* Footer support */
+  margin-bottom: 100px;
+}
+
+/* Remove default style */
+button,
+input {
+  width: 100%;
+  border: none;
+  outline: none;
+  color: inherit;
+  font-family: inherit;
+  font-size: inherit;
+  cursor: pointer;
+}
+
+/* HEADER */
+
+.header {
+  background-color: var(--light-green);
+  margin-bottom: 50px;
+}
+
+.title {
+  text-align: center;
+  font-size: 80px;
+}
+
+/* MAIN */
+
+.main {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+}
+
+.settings {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 30px;
+  width: 200px;
+}
+
+
+/* Method 1: Style the shape of color picker into circle */
+/* .color-picker-frame {
+  width: 80px;
+  height: 80px;
+  overflow: hidden;
+  border-radius: 50%;
+} */
+
+
+/* input[type="color"] {
+  width: 80px;
+  height: 80px;
+  background-color: var(--black);
+} */
+/* Method 1 end */
+
+
+/* Method 2: Style the shape of color picker into circle */
+input[type="color"] {
+  -webkit-appearance: none;
+  width: 80px;
+  height: 80px;
+  border: none;
+}
+
+input[type="color"]::-webkit-color-swatch-wrapper {
+  padding: 0;
+
+  /* Fill up remaining white square space area */
+  background-color: var(--dark-brown);
+}
+
+input[type="color"]::-webkit-color-swatch {
+  border: none;
+  border-radius: 50%;
+  box-shadow: 1px 1px 5px var(--black);
+}
+/* Method 2 end */
+
+
+button {
+  background-color: var(--dark-green);
+  padding: 10px 20px;
+  border: 2px solid var(--black);
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+button.active {
+  background-color: var(--black);
+  color: white;
+}
+
+button:hover,
+.color-picker-frame:hover {
+  transform: scale(1.1);
+}
+
+.size-value {
+  margin-bottom: -20px;
+  font-size: 20px;
+}
+
+/* Reset input range default style */
+input[type="range"] {
+  -webkit-appearance: none;
+  background: transparent;
+  cursor: pointer;
+}
+
+/* Track style for Chrome */
+input[type="range"]::-webkit-slider-runnable-track {
+  height: 10px;
+  border: 2px solid var(--black);
+  border-radius: 20px;
+  background: var(--dark-green);
+}
+
+/* Track style for Firefox */
+input[type="range"]::-moz-range-track {
+  height: 10px;
+  border: 2px solid var(--black);
+  border-radius: 20px;
+  background: var(--dark-green);
+}
+
+/* Thumb style for Chrome */
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  background-color: var(--black);
+  margin-top: -8px;
+}
+
+/* Thumb style for Firefox */
+input[type="range"]::-moz-range-thumb {
+  -webkit-appearance: none;
+  width: 24px;
+  height: 24px;
+  border-radius: 20px;
+  background-color: var(--black);
+  /* margin-top: -8px; */
+  border: none;
+}
+
+.grid {
+  display: grid;
+  width: 500px;
+  height: 500px;
+  background-color: var(--light-brown);
+  border: 2px solid black;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.3);
+  grid-template-columns: repeat(16, 1fr);
+  grid-template-rows: repeat(16, 1fr);
+}
+
+.grid-element {
+  user-select: none;
+}
+
+/* FOOTER */
+
+footer {
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+  width: 100%;
+  font-size: 20px;
+}
